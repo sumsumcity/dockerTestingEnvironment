@@ -1,0 +1,9 @@
+services:
+  app:
+    build: . # builds the image before starting
+    container_name: channel-api
+    command: python manage.py runserver 0.0.0.0:80 # replaces the CMD command in the Dockerfile
+    ports:
+      - 8080:80
+    volumes:
+      - .:/app # If we change anything in . (current folder) then it syncs change in the /app folder as well - overwrites the COPY in the Dockerfile
