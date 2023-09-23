@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from simpleAPI import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('food/', views.food_list),
+    path('food/<int:id>', views.food_detail)
 ]
